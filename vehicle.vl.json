@@ -1,0 +1,46 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Number of Registered Vehicles by Postcode (30 June 2024)",
+  "width": 800,
+  "height": 400,
+  "projection": {"type": "equirectangular"},
+  "data": {
+    "url": "https://raw.githubusercontent.com/Sir-Ryan/3179/refs/heads/main/postcodes.topojson.json",
+    "format": {"type": "topojson", "feature": "postcodes"}
+  },
+  "transform": [
+    {
+      "lookup": "properties.POSTCODE",
+      "from": {
+        "data": {
+          "url": "https://raw.githubusercontent.com/Sir-Ryan/3179/refs/heads/main/registered-vehicles-by-postcode-at-30-june-2024.csv",
+          "format": {"type": "csv"}
+        },
+        "key": "Owner PostCode",
+        "fields": ["Total(TOTAL_VEHICLES)"]
+      }
+    },
+    {
+      "calculate": "datum['Total(TOTAL_VEHICLES)'] + 0.1",
+      "as": "Total Vehicles"
+    }
+  ],
+  "mark": {"type": "geoshape"},
+  "encoding": {
+    "color": {
+      "field": "Total Vehicles",
+      "type": "quantitative",
+      "scale": {"type": "log"},
+      "title": "Number of Vehicles"
+    },
+    "tooltip": [
+      {"field": "properties.POSTCODE", "type": "nominal", "title": "Postcode"},
+      {
+        "field": "Total Vehicles",
+        "type": "quantitative",
+        "title": "Total Vehicles"
+      }
+    ]
+  },
+  "config": {}
+}
