@@ -21,7 +21,7 @@
       }
     },
     {
-      "calculate": "datum['Total(TOTAL_VEHICLES)'] + 0.1",
+      "calculate": "datum['Total(TOTAL_VEHICLES)'] + 0",
       "as": "Total Vehicles"
     }
   ],
