@@ -15,7 +15,7 @@
         "min": 10000,
         "max": 700000,
         "step": 10000,
-        "name": "Max Price (AUD)"
+        "name": "Max Price"
       }
     }
   ],
