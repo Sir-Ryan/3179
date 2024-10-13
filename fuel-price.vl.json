@@ -1,5 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 600,
+  "height": 400,
   "title": "Fuel Consumption vs. Price",
   "data": {
     "url": "https://raw.githubusercontent.com/Sir-Ryan/3179/refs/heads/main/vehicle-prices.csv"
@@ -29,12 +31,12 @@
   ],
   "mark": "point",
   "encoding": {
-    "x": {
+    "y": {
       "field": "FuelConsumptionNumeric",
       "type": "quantitative",
       "title": "Fuel Consumption (L/100km)"
     },
-    "y": { "field": "Price", "type": "quantitative", "title": "Price (AUD)" },
+    "x": { "field": "Price", "type": "quantitative", "title": "Price (AUD)" },
     "color": { "field": "BodyType", "type": "nominal", "title": "Body Type" },
     "tooltip": [
       { "field": "Brand", "type": "nominal", "title": "Brand" },
