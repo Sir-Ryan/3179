@@ -78,11 +78,13 @@
             <div class="viz" id="vis3"></div>
             <div class="description">
                 <p>
-                    <strong>Visualisation 3:</strong> This graph shows the
-                    distribution of car types (e.g., sedan, SUV, hatchback) and
-                    their prices across various years. It highlights pricing
-                    trends over time and the popularity of different car types,
-                    which can assist in predicting future market shifts.
+                    <strong>Odometer vs Year of Manufacture:</strong> There is a
+                    clear trend of higher kilometre readings for cars
+                    manufactured between 2000 and 2013. Interestingly, older
+                    cars, particularly those from the 1980s and earlier, tend to
+                    have lower odometer readings, possibly because they are
+                    preserved as heritage vehicles or for collectors’ purposes,
+                    leading to less frequent use.
                 </p>
             </div>
         </div>
@@ -118,7 +120,7 @@
             // Embed the visualisations from external JSON files
             vegaEmbed("#vis1", "map.vl.json");
             vegaEmbed("#vis2", "fuel-price.vl.json");
-            vegaEmbed("#vis3", "vis3.json");
+            vegaEmbed("#vis3", "kms.vl.json");
         </script>
     </body>
 </html>

@@ -1,0 +1,19 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "A scatter plot of vehicle Year vs Kilometres.",
+  "data": {
+    "url": "https://raw.githubusercontent.com/Sir-Ryan/3179/refs/heads/main/vehicle-prices.csv"
+  },
+  "mark": "point",
+  "encoding": {
+    "x": {"field": "Year", "type": "ordinal", "title": "Year"},
+    "y": {"field": "Kilometres", "type": "quantitative", "title": "Kilometres"},
+    "tooltip": [
+      {"field": "Brand", "type": "nominal", "title": "Brand"},
+      {"field": "Model", "type": "nominal", "title": "Model"},
+      {"field": "Kilometres", "type": "quantitative", "title": "Kilometres"},
+      {"field": "Price", "type": "quantitative", "title": "Price"}
+    ]
+  },
+  "config": {}
+}
