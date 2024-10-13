@@ -1,37 +1,92 @@
 <!doctype html>
-<html>
+<html lang="en">
     <head>
-        <title>Australian Vehicle Availability</title>
-        <!-- Import Vega & Vega-Lite Libraries -->
-        <script src="https://cdn.jsdelivr.net/npm/vega@5.22.1"></script>
-        <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.5.0"></script>
-        <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.21.0"></script>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Car Price Data Visualisation</title>
+        <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
         <style>
             body {
                 font-family: Arial, sans-serif;
+                margin: 20px;
             }
-            #visualization {
-                width: 100%;
-                height: 100%;
+            .container {
+                display: flex;
+                align-items: flex-start;
+                margin-bottom: 40px;
+            }
+            .viz {
+                flex: 1;
+                margin-right: 20px;
+            }
+            .description {
+                flex: 1;
+            }
+            h1,
+            h2 {
+                text-align: center;
             }
         </style>
     </head>
     <body>
-        <div id="visualization">Loading visualization...</div>
+        <h1>Car Price Data Visualisation</h1>
+        <h2>By Ryan</h2>
+        <p>
+            This page provides an analysis of car prices in Australia,
+            showcasing various trends related to different car models, regions,
+            and vehicle attributes. The visualisations below explore key
+            insights, including the distribution of car types by location, car
+            registration trends, and pricing patterns by year.
+        </p>
 
-        <script type="text/javascript">
-            var spec = "vehicle.vl.json";
+        <div class="container">
+            <div class="viz" id="vis1"></div>
+            <div class="description">
+                <p>
+                    <strong>Visualisation 1:</strong> This visualisation
+                    displays the distribution of car prices across different
+                    regions of Australia. It allows for a quick comparison of
+                    how prices vary by postcode, giving insight into regional
+                    pricing differences. These trends can help buyers or sellers
+                    understand the impact of location on car prices.
+                </p>
+            </div>
+        </div>
 
-            // Embed the visualization
-            vegaEmbed("#visualization", spec)
-                .then(function (result) {
-                    console.log("Visualization loaded successfully.");
-                })
-                .catch(function (error) {
-                    console.error("Error loading visualization:", error);
-                    document.getElementById("visualization").innerText =
-                        "Error loading visualization. Check console for details.";
-                });
+        <div class="container">
+            <div class="viz" id="vis2"></div>
+            <div class="description">
+                <p>
+                    <strong>Visualisation 2:</strong> This chart illustrates the
+                    number of new car registrations per month. It helps identify
+                    peak months for car purchases and provides a better
+                    understanding of market demand throughout the year. This can
+                    be useful for businesses planning promotions and inventory
+                    management.
+                </p>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="viz" id="vis3"></div>
+            <div class="description">
+                <p>
+                    <strong>Visualisation 3:</strong> This graph shows the
+                    distribution of car types (e.g., sedan, SUV, hatchback) and
+                    their prices across various years. It highlights pricing
+                    trends over time and the popularity of different car types,
+                    which can assist in predicting future market shifts.
+                </p>
+            </div>
+        </div>
+
+        <script>
+            // Embed the visualisations from external JSON files
+            vegaEmbed("#vis1", "map.vl.json");
+            vegaEmbed("#vis2", "fuel-price.vl.json");
+            vegaEmbed("#vis3", "vis3.json");
         </script>
     </body>
 </html>

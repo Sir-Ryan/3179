@@ -1,0 +1,52 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Fuel Consumption vs. Price scatter plot with a price filter, colour-coded by BodyType",
+  "data": {
+    "url": "https://raw.githubusercontent.com/Sir-Ryan/3179/refs/heads/main/vehicle-prices.csv"
+  },
+  "params": [
+    {
+      "name": "PriceMax",
+      "value": 100000,
+      "bind": {
+        "input": "range",
+        "min": 10000,
+        "max": 700000,
+        "step": 10000,
+        "name": "Max Price (AUD)"
+      }
+    }
+  ],
+  "transform": [
+    {
+      "filter": "datum.FuelConsumption != '-' && replace(replace(datum.FuelConsumption, ' L / 100 km', ''), ' ', '') != '0' && datum.Price > 0 && !isNaN(datum.Year)"
+    },
+    {
+      "calculate": "replace(replace(datum.FuelConsumption, ' L / 100 km', ''), ' ', '')",
+      "as": "FuelConsumptionNumeric"
+    },
+    {"filter": "datum.Price <= PriceMax"}
+  ],
+  "mark": "point",
+  "encoding": {
+    "x": {
+      "field": "FuelConsumptionNumeric",
+      "type": "quantitative",
+      "title": "Fuel Consumption (L/100km)"
+    },
+    "y": {"field": "Price", "type": "quantitative", "title": "Price (AUD)"},
+    "color": {"field": "BodyType", "type": "nominal", "title": "Body Type"},
+    "tooltip": [
+      {"field": "Brand", "type": "nominal", "title": "Brand"},
+      {"field": "Model", "type": "nominal", "title": "Model"},
+      {"field": "Year", "type": "temporal", "title": "Year"},
+      {
+        "field": "FuelConsumptionNumeric",
+        "type": "quantitative",
+        "title": "Fuel Consumption"
+      },
+      {"field": "Price", "type": "quantitative", "title": "Price"}
+    ]
+  },
+  "config": {}
+}
