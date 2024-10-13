@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "description": "Fuel Consumption vs. Price",
+  "title": "Fuel Consumption vs. Price",
   "data": {
     "url": "https://raw.githubusercontent.com/Sir-Ryan/3179/refs/heads/main/vehicle-prices.csv"
   },

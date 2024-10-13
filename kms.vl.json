@@ -1,8 +1,8 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 800,
+  "width": 600,
   "height": 400,
-  "description": "A scatter plot of vehicle Year vs Kilometres.",
+  "title": "Year vs Kilometres.",
   "data": {
     "url": "https://raw.githubusercontent.com/Sir-Ryan/3179/refs/heads/main/vehicle-prices.csv"
   },
